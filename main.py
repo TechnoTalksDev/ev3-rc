@@ -41,6 +41,12 @@ def apply_dead_zone(value, dead_zone=0.1):
 # main loop
 try:
   while True:
+      # force pygame to process input
+      pygame.event.pump()
+      # Debug joystick axis values
+      #for i in range(joystick.get_numaxes()):
+      #  print(f"Axis {i}: {joystick.get_axis(i):.2f}")
+
       # axis numbers are for xbox series x controller
       left_stick_y = apply_dead_zone(joystick.get_axis(1) * -1)
       right_stick_y = apply_dead_zone(joystick.get_axis(3) * -1)
